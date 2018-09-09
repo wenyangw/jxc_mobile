@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jxc/about.dart';
 import 'package:jxc/login.dart';
+import 'package:jxc/test_listview.dart';
 
 void main() => runApp(new MyApp());
 
@@ -15,11 +16,13 @@ class _MyAppState extends State<MyApp>{
   Widget _screen;
   Login _login;
   About _about;
+  TestListView _test_listview;
   bool _authenticated;
 
   _MyAppState(){
     _login = new Login(onSubmit: (){onSubmit();});
     _about = new About();
+    _test_listview = new TestListView();
     _screen = _login;
     _authenticated = false;
   }
@@ -43,7 +46,7 @@ class _MyAppState extends State<MyApp>{
   void _setAuthenticated(bool auth){
     setState(() {
       if(auth){
-        _screen = _about;
+        _screen = _test_listview;
         _title = 'Welcome';
         _authenticated = true;
       }else{
